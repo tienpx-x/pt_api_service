@@ -1,0 +1,21 @@
+name: pt_api_service
+description: Network layer, built on top of Dio.
+version: 1.0.0+1
+homepage: https://github.com/tienpx-x/pt_api_service
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^3.0.8
+  pt_object_mapper:
+    git:
+      url: https://github.com/tienpx-x/pt_object_mapper
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
