@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pt_object_mapper/pt_object_mapper.dart';
+import 'package:rxdart/rxdart.dart';
 
 import 'base_api_input.dart';
 import 'base_api_output.dart';
@@ -15,6 +16,10 @@ class BaseAPIService {
     return input;
   }
 
+  Stream<bool> precheck(BaseAPIInput input) {
+    return Stream.value(true);
+  }
+
   void handleResponseError(DioError error) {}
 
   void log(Object object) {
@@ -22,7 +27,9 @@ class BaseAPIService {
   }
 
   Stream<T> request<T extends BaseAPIOutput>(BaseAPIInput input) {
-    return Stream.fromFuture(_request(input));
+    return precheck(input)
+        .where((isPass) => isPass)
+        .switchMap((_) => Stream.fromFuture(_request(input)));
   }
 
   Future<T> _request<T extends BaseAPIOutput>(BaseAPIInput input) async {

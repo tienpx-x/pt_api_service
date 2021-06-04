@@ -78,6 +78,13 @@ packages:
       url: "https://github.com/tienpx-x/pt_object_mapper"
     source: git
     version: "1.0.0+2"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.27.1"
   sky_engine:
     dependency: transitive
     description: flutter
